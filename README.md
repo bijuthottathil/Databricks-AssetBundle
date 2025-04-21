@@ -1,4 +1,6 @@
 # Databricks Asset Bundle
+![image](https://github.com/user-attachments/assets/0a7fe277-4c30-437a-a3cf-7ddbcc4628fb)
+
 Will demonstrate how to deploy and manage your assets efficiently
 
 First step , I am setting up Databricks project in VS Code using Databricks extensions
