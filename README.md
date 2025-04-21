@@ -45,4 +45,60 @@ Delta pipeline code in the vs code also copied to Databricks workspace
 ![image](https://github.com/user-attachments/assets/c29e7c60-76d9-487d-9340-a1ccc20cd3e4)
 
 
+Now I am running the job . Databricks automatically allocate job cluster and execute the job
+
+![image](https://github.com/user-attachments/assets/b4bf5532-6475-4ea4-8c1e-9cd0a6eab481)
+
+Just refer the job cluster mentioned in the yaml file
+
+# The main job for cicdproject.
+resources:
+  jobs:
+    cicdproject_job:
+      name: cicdproject_job
+
+      trigger:
+        # Run this job every day, exactly one day from the last run; see https://docs.databricks.com/api/workspace/jobs/create#trigger
+        periodic:
+          interval: 1
+          unit: DAYS
+
+      email_notifications:
+        on_failure:
+          - bijumathewt@gmail.com
+
+      tasks:
+        - task_key: notebook_task
+          job_cluster_key: job_cluster
+          notebook_task:
+            notebook_path: ../src/notebook.ipynb
+        
+        - task_key: refresh_pipeline
+          depends_on:
+            - task_key: notebook_task
+          pipeline_task:
+            pipeline_id: ${resources.pipelines.cicdproject_pipeline.id}
+        
+        - task_key: main_task
+          depends_on:
+            - task_key: refresh_pipeline
+          job_cluster_key: job_cluster
+          python_wheel_task:
+            package_name: cicdproject
+            entry_point: main
+          libraries:
+            # By default we just include the .whl file generated for the cicdproject package.
+            # See https://docs.databricks.com/dev-tools/bundles/library-dependencies.html
+            # for more information on how to add other libraries.
+            - whl: ../dist/*.whl
+
+      job_clusters:
+        - job_cluster_key: job_cluster
+          new_cluster:
+            spark_version: 15.4.x-scala2.12
+            node_type_id: Standard_D3_v2
+            data_security_mode: SINGLE_USER
+            autoscale:
+                min_workers: 1
+                max_workers: 4
 
