@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "config": {
+    "bundle": {
+      "git": {
+        "bundle_root_path": "."
+      }
+    },
+    "workspace": {
+      "file_path": "/Workspace/Users/bijumathewt@gmail.com/.bundle/cicdproject/dev/files"
+    },
+    "resources": {
+      "jobs": {
+        "cicdproject_job": {
+          "id": "935804257687071",
+          "relative_path": "resources/cicdproject.job.yml"
+        }
+      }
+    }
+  }
+}
