@@ -25,7 +25,9 @@ If you open workspace, you cannot see any files under DEV
 
 ![image](https://github.com/user-attachments/assets/1d5ac4f6-50f4-4567-9736-d2d6ec4def47)
 
-You can see Terraform files created in vs code
+You can see Terraform files created in vs code after running 
+
+databricks bundle deploy -t dev
 
 ![image](https://github.com/user-attachments/assets/ea46a609-0479-47bf-9971-5f2377c4facd)
 
