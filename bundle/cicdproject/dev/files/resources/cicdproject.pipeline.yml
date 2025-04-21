@@ -1,0 +1,13 @@
+# The main pipeline for cicdproject
+resources:
+  pipelines:
+    cicdproject_pipeline:
+      name: cicdproject_pipeline
+      catalog: wscicddatabricks
+      schema: cicdproject_${bundle.target}
+      libraries:
+        - notebook:
+            path: ../src/dlt_pipeline.ipynb
+
+      configuration:
+        bundle.sourcePath: ${workspace.file_path}/src
