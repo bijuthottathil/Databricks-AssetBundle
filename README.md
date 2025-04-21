@@ -20,3 +20,12 @@ You can see bundle created in Databricks
 Open the folder . You can see many new folders, yml files generated
 
 ![image](https://github.com/user-attachments/assets/a772618f-756d-493b-a767-f1e51cc74120)
+
+Starting cluster from VS COde
+
+![image](https://github.com/user-attachments/assets/1b67ca98-f32d-4e7e-ab68-357ee62807ce)
+
+Databricks connect also installed with venv
+
+![image](https://github.com/user-attachments/assets/767e64e2-3275-4d89-9bbe-c78b54c3c263)
+
