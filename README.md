@@ -104,3 +104,6 @@ resources:
                 min_workers: 1
                 max_workers: 4
 
+I executed following DLT 
+
+![image](https://github.com/user-attachments/assets/667d7212-cb2a-450b-9912-b61ca123b519)
